@@ -1,0 +1,161 @@
+/*==================== GOOGLE FONTS ====================*/
+
+/*==================== VARIABLES CSS ====================*/
+:root {
+  --header-height: ;
+
+  /*========== Colors ==========*/
+  /* Change favorite color */
+  --hue-color: ; /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
+
+  /* HSL color mode */
+  --first-color: ;
+  --first-color-second: ;
+  --first-color-alt: ;
+  --first-color-lighter: ;
+  --title-color: ;
+  --text-color: ;
+  --text-color-light: ;
+  --input-color: ;
+  --body-color: ;
+  --container-color: ;
+  /* Scroll Bar Colors */
+  --scroll-bar-color: #dddee2;
+  --scroll-thumb-color: #b4b8ca;
+  --scroll-bar-thumb-hover: #8b8d97;
+
+  /*========== Font and typography ==========*/
+  --body-font: ;
+
+  /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
+  --big-font-size: ;
+  --h1-font-size: ;
+  --h2-font-size: ;
+  --h3-font-size: ;
+  --normal-font-size: ;
+  --small-font-size: ;
+  --smaller-font-size: ;
+
+  /*========== Font weight ==========*/
+  --font-medium: ;
+  --font-semi-bold: ;
+
+  /*========== Bottom Margins ==========*/
+  /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
+  --mb-0-25: ;
+  --mb-0-5: ;
+  --mb-0-75: ;
+  --mb-1: ;
+  --mb-1-5: ;
+  --mb-2: ;
+  --mb-2-5: ;
+  --mb-3: ;
+
+  /*========== Z INDEX ==========*/
+  --z-tooltip: ;
+  --z-fixed: ;
+  --z-modal: ;
+}
+
+/* Font size for large devices */
+@media screen and (min-width: 968px) {
+  :root {
+    --big-font-size: ;
+    --h1-font-size: ;
+    --h2-font-size: ;
+    --h3-font-size: ;
+    --normal-font-size: ;
+    --small-font-size: ;
+    --smaller-font-size: ;
+  }
+}
+
+/*========== Variables Dark theme ==========*/
+
+/*========== Button Dark/Light ==========*/
+
+/*==================== BASE ====================*/
+html {
+  scroll-behavior: smooth;
+}
+
+/*==================== REUSABLE CSS CLASSES ====================*/
+
+/*==================== LAYOUT ====================*/
+
+/*==================== NAV ====================*/
+
+/* show menu */
+
+/* Active link */
+
+/* Change background header */
+
+/*==================== HOME ====================*/
+
+/*==================== BUTTONS ====================*/
+
+/*==================== ABOUT ====================*/
+
+/*==================== SKILLS ====================*/
+
+/*==================== QUALIFICATION ====================*/
+
+/*==================== SERVICES ====================*/
+
+/* Active Modal */
+
+/*==================== PORTFOLIO ====================*/
+
+/*==================== PROJECT IN MIND ====================*/
+
+/*==================== TESTIMONIAL ====================*/
+
+/*==================== CONTACT ME ====================*/
+
+/*==================== FOOTER ====================*/
+
+/*========== SCROLL UP ==========*/
+.scrollUp {
+  position: fixed;
+  right: 1rem;
+  bottom: -20%;
+  background-color: var(--secondary-color);
+  opacity: 0.8;
+  padding: 0 0.3rem;
+  border-radius: 0.4rem;
+  z-index: var(--z-tooltip);
+  transition: 0.4s;
+}
+.scrollUp:hover {
+  background-color: var(--primary-color);
+}
+.scrollUp_icon {
+  font-size: 1.5rem;
+  color: white;
+}
+/* Show scroll */
+.show-scroll {
+  bottom: 5rem;
+}
+
+/*========== SCROLL BAR ==========*/
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background-color: var(--scroll-bar-color);
+  border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb-color);
+  border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scroll-bar-thumb-hover);
+}
+
+/*==================== MEDIA QUERIES ====================*/
+/* For small devices */
+
+/* For medium devices */
+
+/* For large devices */
