@@ -6,10 +6,6 @@
   --header-height: ;
 
   /*========== Colors ==========*/
-  /* Change favorite color */
-  --hue-color: ; /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
-
-  /* HSL color mode */
   --first-color: ;
   --first-color-second: ;
   --first-color-alt: ;
@@ -26,7 +22,7 @@
   --scroll-bar-thumb-hover: #8b8d97;
 
   /*========== Font and typography ==========*/
-  --body-font: ;
+  --body-font: "Vollkorn", Georgia, serif;
 
   /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
   --big-font-size: ;
@@ -38,8 +34,8 @@
   --smaller-font-size: ;
 
   /*========== Font weight ==========*/
-  --font-medium: ;
-  --font-semi-bold: ;
+  --font-medium: 500;
+  --font-semi-bold: 600;
 
   /*========== Bottom Margins ==========*/
   /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
@@ -71,48 +67,75 @@
   }
 }
 
-/*========== Variables Dark theme ==========*/
-
-/*========== Button Dark/Light ==========*/
-
 /*==================== BASE ====================*/
+* {
+  /* box-sizing: border-box; */
+  padding: 0;
+  margin: 0;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
-/*==================== REUSABLE CSS CLASSES ====================*/
+/* Remove o scroll horizontal: 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}*/
+
+body {
+  margin: 0 0 var(--header-height) 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+h1,
+h2,
+h3,
+h4 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100px;
+  height: auto;
+}
 
 /*==================== LAYOUT ====================*/
+.structure {
+  display: grid;
+  /* 3 colunas: sidenav, content & ads: */
+  grid-template-columns: minmax(160px, 1fr) 1fr 300px;
+}
 
 /*==================== NAV ====================*/
 
-/* show menu */
+/*==================== TITLE ====================*/
 
-/* Active link */
+/*==================== COL WIDE ====================*/
 
-/* Change background header */
+/*==================== IMAGE1 ====================*/
 
-/*==================== HOME ====================*/
+/*==================== EMPHASIS ====================*/
 
-/*==================== BUTTONS ====================*/
+/*==================== TEXTS ====================*/
 
-/*==================== ABOUT ====================*/
+/*==================== BLOCKQUOTE ====================*/
 
-/*==================== SKILLS ====================*/
+/*==================== ADVERTISING / ADVERTISEMENTS ====================*/
 
-/*==================== QUALIFICATION ====================*/
+/*==================== ATRIBUTES ====================*/
 
-/*==================== SERVICES ====================*/
-
-/* Active Modal */
-
-/*==================== PORTFOLIO ====================*/
-
-/*==================== PROJECT IN MIND ====================*/
-
-/*==================== TESTIMONIAL ====================*/
-
-/*==================== CONTACT ME ====================*/
+/*==================== INFO ====================*/
 
 /*==================== FOOTER ====================*/
 
