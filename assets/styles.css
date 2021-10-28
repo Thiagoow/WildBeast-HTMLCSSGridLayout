@@ -288,10 +288,46 @@ p {
 }
 
 /*==================== EMPHASIS ====================*/
-
-/*==================== ATRIBUTES ====================*/
+.emphasis {
+  font-size: var(--small-font-size);
+  color: var(--second-color);
+  /* Pra ele não crescer: */
+  max-width: 16rem;
+}
 
 /*==================== BLOCKQUOTE ====================*/
+.quote,
+.atributes {
+  background: var(--header-gradient);
+  padding: var(--mb-2);
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 0px var(--shadow-color);
+  /* ☝🏼 5px pra direita, 5px pra baixo, 
+  15px de desfoque, 0px de shadow grow */
+}
+
+.quote p {
+  color: white;
+  font-size: 1.5rem;
+  font-style: italic;
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+  /* ☝🏼 Cima e baixo 0, esquerda e direita auto */
+}
+
+/*==================== ATRIBUTES ====================*/
+.atributes li {
+  align-self: start;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: var(--normal-font-size);
+  padding: 1rem;
+}
+/* Divisor line: */
+.atributes li + li {
+  border-top: 2px solid var(--second-color);
+}
 
 /*==================== FOOTER ====================*/
 .footer {
@@ -353,7 +389,31 @@ os quais tiverem um vizinho igual 😁😎 */
 
 /*==================== MEDIA QUERIES ====================*/
 /* For small devices */
+@media (max-width: 760px) {
+  .structure {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "header"
+      "sidenav"
+      "content"
+      "ads"
+      "footer";
+  }
+  /* ☝🏼 Todo o site em fica agora
+  em apenas uma única coluna */
+}
 
 /* For medium devices */
 
 /* For large devices */
+@media (max-width: 1200px) {
+  .structure {
+    grid-template-areas:
+      "header header header"
+      "sidenav content content"
+      "sidenav ads ads"
+      "footer footer footer";
+  }
+  /* ☝🏼 Ads ficam embaixo do conteúdo, 
+  ao invés do lado direito: */
+}
