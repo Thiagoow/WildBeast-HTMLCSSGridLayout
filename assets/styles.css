@@ -112,7 +112,7 @@ a {
 }
 
 img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   display: block;
   border-radius: var(--border-radius);
@@ -123,9 +123,11 @@ img {
   display: grid;
   /* 3 colunas: sidenav, content & ads: */
   grid-template-columns: minmax(160px, 1fr) 3fr 300px;
+
   grid-template-areas:
     "header header header"
-    "sidenav content ads"
+    "sidenav content content"
+    "sidenav ads ads"
     "footer footer footer";
 }
 
@@ -173,13 +175,13 @@ os quais tiverem um vizinho igual 😁😎 */
 }
 .sidenav li a {
   display: block;
-  min-width: 3.6rem;
-  max-width: 6rem;
+  min-width: 6rem;
+  max-width: 8rem;
   margin: 0 auto var(--mb-2) auto;
   /* ☝🏼 0 pra cima, auto pra direita,
   1.8 pra baixo, e auto pra esquerda*/
   background: white;
-  padding: 1.25rem;
+  padding: 1rem;
   border-radius: var(--border-radius);
   box-shadow: 5px 5px 15px 0px var(--shadow-color);
   transition: 0.1s ease-in-out;
@@ -196,6 +198,10 @@ os quais tiverem um vizinho igual 😁😎 */
   align-content: start;
   padding: var(--mb-2);
   gap: var(--mb-2);
+  /* Deixando os ads responsivos sem media query */
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  /* Encaixa no máximo de colunas que conseguir, respeitando
+  o mínimo de 150px, e máximo de 1fr (preencher toda a coluna) */
 }
 
 /*==================== TITLE ====================*/
@@ -273,6 +279,10 @@ os quais tiverem um vizinho igual 😁😎 */
 .image1 {
   grid-row: span 2;
   align-self: end;
+}
+.image3 {
+  justify-self: center;
+  max-width: 1fr;
 }
 
 /*==================== TEXTS ====================*/
@@ -388,7 +398,37 @@ os quais tiverem um vizinho igual 😁😎 */
 }
 
 /*==================== MEDIA QUERIES ====================*/
-/* For small devices */
+/* For small & medium devices */
+@media (max-width: 600px) {
+  .content {
+    /* Todo o conteúdo vira de uma coluna apenas: */
+    grid-template-columns: auto;
+  }
+  img {
+    width: 100%;
+  }
+}
+@media (max-width: 685px) {
+  @keyframes seta {
+    from {
+      right: 20px;
+    }
+    to {
+      right: 30px;
+    }
+  }
+
+  /* Criando a setinha que indica o scroll horizontal: */
+  .sidenav::after {
+    content: "→";
+    position: absolute;
+    font-size: 1.5rem;
+    top: 5px;
+    right: 20px;
+    color: var(--first-color);
+    animation: seta 0.5s ease-in 0s infinite alternate;
+  }
+}
 @media (max-width: 760px) {
   .structure {
     grid-template-columns: 100%;
@@ -401,19 +441,59 @@ os quais tiverem um vizinho igual 😁😎 */
   }
   /* ☝🏼 Todo o site em fica agora
   em apenas uma única coluna */
+  .header {
+    grid-template-columns: auto;
+  }
+  .logo {
+    margin-bottom: 1.25rem;
+  }
+  .header li + li {
+    margin-left: 0.95rem; /* 👈🏽 15px */
+  }
+
+  .sidenav {
+    /* Para que não estoure o layout,
+    e sim crie uma própria barra de navegação: */
+    overflow-x: auto;
+    /* Para deixar o scroll fluído no mobile: */
+    -webkit-overflow-scrolling: touch;
+    /* Esconde a barrinha em dispositivos largos
+    da Microsoft(ms): */
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    /* Para que a setinha com position absolute
+    que indica o scroll, referencie a sidenav,
+    e não o body: */
+    position: relative;
+  }
+
+  .sidenav ul {
+    display: flex;
+  }
+  .sidenav ul li {
+    flex: 1 0 3.65rem;
+    /* 1 grow = pode crescer, 0 não diminui
+    mais que isso, e ten 3.65rem de flex-basis
+    (pading/cantos direitos e esquerdos) */
+  }
+  .sidenav {
+    padding: 0 1.8rem; /* 0 pra cima e pra baixo,
+    30px pixels da esquerda pra direita */
+  }
+  .sidenav li a {
+    margin: 1.8rem 1.8rem 1.8rem 0;
+    /* Cima, direita, baixo e esquerda */
+  }
 }
 
-/* For medium devices */
-
 /* For large devices */
-@media (max-width: 1200px) {
+@media (min-width: 1200px) {
   .structure {
     grid-template-areas:
       "header header header"
-      "sidenav content content"
-      "sidenav ads ads"
+      "sidenav content ads"
       "footer footer footer";
+    /* ☝🏼 Ads ficam do lado direito 
+    do conteúdo, ao invés de embaixo: */
   }
-  /* ☝🏼 Ads ficam embaixo do conteúdo, 
-  ao invés do lado direito: */
 }
