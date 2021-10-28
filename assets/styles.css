@@ -110,6 +110,7 @@ ul {
 a {
   text-decoration: none;
 }
+
 img {
   max-width: 100%;
   height: auto;
@@ -303,6 +304,13 @@ os quais tiverem um vizinho igual 😁😎 */
   color: white;
   text-align: center;
   padding: var(--mb-2);
+}
+.footer a {
+  color: white;
+}
+.footer a:hover {
+  font-weight: var(--font-semi-bold);
+  color: var(--first-color-alt);
 }
 
 /*========== SCROLL UP ==========*/
