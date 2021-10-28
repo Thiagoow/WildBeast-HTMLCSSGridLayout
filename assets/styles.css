@@ -1,23 +1,28 @@
 /*==================== GOOGLE FONTS ====================*/
-@import url("https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 /*==================== VARIABLES CSS ====================*/
 :root {
   --header-height: ;
+  --border-radius: 0.5rem;
 
   /*========== Colors ==========*/
-  --first-color: ;
-  --first-color-second: ;
-  --first-color-alt: ;
-  --first-color-lighter: ;
-  --title-color: ;
-  --text-color: ;
+  --first-color: #8844ee;
+  --second-color: #b07dfb;
+  --first-color-alt: #4c2685;
+  --header-gradient: linear-gradient(
+    135deg,
+    var(--first-color),
+    var(--second-color)
+  );
+  --text-color: #646464;
   --text-color-light: ;
   --input-color: ;
   --body-color: ;
-  --container-color: ;
+  --container-color: #f2f3f6;
+  --shadow-color: rgba(44, 44, 44, 0.15);
   /* Scroll Bar Colors */
-  --scroll-bar-color: #dddee2;
+  --scroll-bar-color: #e4e4e4;
   --scroll-thumb-color: #b4b8ca;
   --scroll-bar-thumb-hover: #8b8d97;
 
@@ -25,51 +30,51 @@
   --body-font: "Vollkorn", Georgia, serif;
 
   /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
-  --big-font-size: ;
-  --h1-font-size: ;
-  --h2-font-size: ;
-  --h3-font-size: ;
-  --normal-font-size: ;
-  --small-font-size: ;
-  --smaller-font-size: ;
+  --big-font-size: 4rem;
+  --h1-font-size: 3rem;
+  --h2-font-size: 2rem;
+  --normal-font-size: 1.125rem;
+  --small-font-size: 0.875rem;
+  --smaller-font-size: 0.625rem;
 
   /*========== Font weight ==========*/
   --font-medium: 500;
-  --font-semi-bold: 600;
+  --font-semi-bold: 700;
 
   /*========== Bottom Margins ==========*/
   /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
-  --mb-0-25: ;
-  --mb-0-5: ;
-  --mb-0-75: ;
-  --mb-1: ;
-  --mb-1-5: ;
-  --mb-2: ;
-  --mb-2-5: ;
-  --mb-3: ;
+  --mb-0-25: 0.25rem;
+  --mb-0-5: 0.5rem;
+  --mb-0-75: 0.75rem;
+  --mb-1: 1rem;
+  --mb-1-5: 1.5rem;
+  --mb-1-75: 1.75rem;
+  --mb-2: 2rem;
+  --mb-2-5: 2.5rem;
+  --mb-2-75: 2.75rem;
+  --mb-3: 3rem;
 
-  /*========== Z INDEX ==========*/
-  --z-tooltip: ;
-  --z-fixed: ;
-  --z-modal: ;
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
 }
 
 /* Font size for large devices */
 @media screen and (min-width: 968px) {
   :root {
-    --big-font-size: ;
-    --h1-font-size: ;
-    --h2-font-size: ;
-    --h3-font-size: ;
-    --normal-font-size: ;
-    --small-font-size: ;
-    --smaller-font-size: ;
+    --big-font-size: 5rem;
+    --h1-font-size: 4rem;
+    --h2-font-size: 3rem;
+    --normal-font-size: 1.2rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.625rem;
   }
 }
 
 /*==================== BASE ====================*/
 * {
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
@@ -106,53 +111,214 @@ a {
   text-decoration: none;
 }
 img {
-  max-width: 100px;
+  max-width: 100%;
   height: auto;
+  display: block;
+  border-radius: var(--border-radius);
 }
 
 /*==================== LAYOUT ====================*/
 .structure {
   display: grid;
   /* 3 colunas: sidenav, content & ads: */
-  grid-template-columns: minmax(160px, 1fr) 1fr 300px;
+  grid-template-columns: minmax(160px, 1fr) 3fr 300px;
+  grid-template-areas:
+    "header header header"
+    "sidenav content ads"
+    "footer footer footer";
 }
 
-/*==================== NAV ====================*/
+/*==================== HEADER ====================*/
+.header {
+  /* Definindo nas áreas de grid: */
+  grid-area: header;
+  background: var(--header-gradient);
+  padding: var(--mb-2);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+.logo {
+  max-width: 12rem;
+}
+.header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.header nav a {
+  display: block;
+  padding: 0.6rem;
+  color: white;
+  font-size: var(--normal-font-size);
+  background: var(--first-color);
+  border-radius: var(--border-radius);
+  transition: 0.1s;
+}
+.header nav a:hover {
+  background: var(--first-color-alt);
+}
+/* Só add a margem pros itens de lista
+os quais tiverem um vizinho igual 😁😎 */
+.header li + li {
+  /* Espaçamento entre os links: */
+  margin-left: var(--mb-2);
+}
+
+/*==================== SIDE NAV ====================*/
+.sidenav {
+  grid-area: sidenav;
+  background: var(--container-color);
+  padding: var(--mb-2);
+}
+.sidenav li a {
+  display: block;
+  min-width: 3.6rem;
+  max-width: 6rem;
+  margin: 0 auto var(--mb-2) auto;
+  /* ☝🏼 0 pra cima, auto pra direita,
+  1.8 pra baixo, e auto pra esquerda*/
+  background: white;
+  padding: 1.25rem;
+  border-radius: var(--border-radius);
+  box-shadow: 5px 5px 15px 0px var(--shadow-color);
+  transition: 0.1s ease-in-out;
+}
+.sidenav li a:hover {
+  background: var(--second-color);
+}
+
+/*==================== ADVERTISING / ADVERTISEMENTS ====================*/
+.ads {
+  grid-area: ads;
+  background: var(--container-color);
+  display: grid;
+  align-content: start;
+  padding: var(--mb-2);
+  gap: var(--mb-2);
+}
 
 /*==================== TITLE ====================*/
+.title {
+  color: var(--second-color);
+}
 
-/*==================== COL WIDE ====================*/
+.title h1 {
+  font-size: var(--h1-font-size);
+  line-height: 1;
+  font-weight: var(--font-semi-bold);
+}
 
-/*==================== IMAGE1 ====================*/
+.title span {
+  font-size: var(--small-font-size);
+  font-style: italic;
+}
+
+/*==================== CHARACTERISTICS ====================*/
+.characteristics {
+  display: flex;
+  align-items: flex-start;
+}
+
+.characteristics div {
+  width: 5rem;
+  text-align: center;
+  background: var(--header-gradient);
+  border-radius: var(--border-radius);
+  box-shadow: 5px 5px 15px 0px var(--shadow-color);
+}
+
+.characteristics div:first-child {
+  margin-right: var(--mb-2);
+}
+
+.characteristics span {
+  display: block;
+}
+
+.number {
+  color: var(--second-color);
+  font-size: 3rem;
+  line-height: 1;
+  margin: 10px auto;
+}
+
+.label {
+  background: white;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  /* ☝🏼 0 canto superior direito, 0 canto superior esquerdo
+  & X no canto inferior direito, X no canto inferior esquerdo */
+  padding: 5px 0;
+  /* Pra que o gradiente não vaze da label branca: */
+  position: relative;
+  top: 2px;
+}
+
+/*==================== CONTENT ====================*/
+.content {
+  grid-area: content;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--mb-2);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--mb-2);
+}
+
+.col-wide {
+  grid-column: 1 / -1;
+  /* Pega a coluna wide de ponta a ponta da coluna 1 */
+}
+
+.image1 {
+  grid-row: span 2;
+  align-self: end;
+}
+
+/*==================== TEXTS ====================*/
+p {
+  font-size: var(--normal-font-size);
+  line-height: 1.6;
+  letter-spacing: -0.005rem;
+  color: var(--text-color);
+}
+
+.info p + p {
+  margin-top: var(--mb-2);
+}
 
 /*==================== EMPHASIS ====================*/
 
-/*==================== TEXTS ====================*/
+/*==================== ATRIBUTES ====================*/
 
 /*==================== BLOCKQUOTE ====================*/
 
-/*==================== ADVERTISING / ADVERTISEMENTS ====================*/
-
-/*==================== ATRIBUTES ====================*/
-
-/*==================== INFO ====================*/
-
 /*==================== FOOTER ====================*/
+.footer {
+  grid-area: footer;
+  background: var(--header-gradient);
+}
+/* Só add a margem pros parágrafos
+os quais tiverem um vizinho igual 😁😎 */
+.footer p {
+  color: white;
+  text-align: center;
+  padding: var(--mb-2);
+}
 
 /*========== SCROLL UP ==========*/
 .scrollUp {
   position: fixed;
   right: 1rem;
   bottom: -20%;
-  background-color: blue;
+  background: var(--first-color);
   opacity: 0.8;
   padding: 0 0.3rem;
-  border-radius: 0.4rem;
+  border-radius: var(--border-radius);
   z-index: var(--z-tooltip);
   transition: 0.4s;
 }
 .scrollUp:hover {
-  background-color: darkblue;
+  background: var(--first-color-alt);
 }
 .scrollUp_icon {
   font-size: 1.5rem;
@@ -166,15 +332,15 @@ img {
 /*========== SCROLL BAR ==========*/
 ::-webkit-scrollbar {
   width: 0.6rem;
-  background-color: var(--scroll-bar-color);
+  background: var(--scroll-bar-color);
   border-radius: 0.5rem;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: var(--scroll-thumb-color);
+  background: var(--scroll-thumb-color);
   border-radius: 0.5rem;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--scroll-bar-thumb-hover);
+  background: var(--scroll-bar-thumb-hover);
 }
 
 /*==================== MEDIA QUERIES ====================*/
