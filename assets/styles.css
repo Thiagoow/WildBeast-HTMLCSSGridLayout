@@ -186,10 +186,13 @@ os quais tiverem um vizinho igual 😁😎 */
   box-shadow: 5px 5px 15px 0px var(--shadow-color);
   transition: 0.1s ease-in-out;
 }
-.sidenav li a:hover {
-  background: var(--second-color);
+.sidenav li a:hover,
+.link_active {
+  background: var(--second-color) !important;
 }
-
+.link_active:hover {
+  background: white !important;
+}
 /*==================== ADVERTISING / ADVERTISEMENTS ====================*/
 .ads {
   grid-area: ads;
@@ -220,6 +223,15 @@ os quais tiverem um vizinho igual 😁😎 */
   font-style: italic;
 }
 
+/*==================== EMPHASIS ====================*/
+.emphasis {
+  font-size: var(--small-font-size);
+  color: var(--second-color);
+  /* Pra ele não crescer: */
+  max-width: 16rem;
+  font-weight: var(--font-semi-bold);
+}
+
 /*==================== CHARACTERISTICS ====================*/
 .characteristics {
   display: flex;
@@ -240,6 +252,17 @@ os quais tiverem um vizinho igual 😁😎 */
 
 .characteristics span {
   display: block;
+}
+
+.red {
+  color: #c70000;
+  font-weight: var(--font-semi-bold);
+}
+.yellow {
+  color: #ffff00;
+}
+.green {
+  color: #00ff00;
 }
 
 .number {
@@ -295,14 +318,6 @@ p {
 
 .info p + p {
   margin-top: var(--mb-2);
-}
-
-/*==================== EMPHASIS ====================*/
-.emphasis {
-  font-size: var(--small-font-size);
-  color: var(--second-color);
-  /* Pra ele não crescer: */
-  max-width: 16rem;
 }
 
 /*==================== BLOCKQUOTE ====================*/
