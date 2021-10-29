@@ -193,10 +193,15 @@ os quais tiverem um vizinho igual 😁😎 */
 .nav_btns {
   display: flex;
   align-items: center;
-  padding: 0.6rem;
   background: var(--first-color);
   border-radius: var(--border-radius);
   transition: 0.1s;
+}
+/* Adicionamos o padding direto na tag i do botão
+de change-theme. Do contrário, ele só é clicável
+diretamente no ícone. */
+.nav_btns i {
+  padding: 0.6rem;
 }
 .change-theme {
   font-size: var(--normal-font-size);
@@ -296,7 +301,7 @@ os quais tiverem um vizinho igual 😁😎 */
 }
 
 .red {
-  color: #c70000;
+  color: #9e0202;
   font-weight: var(--font-semi-bold);
 }
 .yellow {
@@ -322,6 +327,10 @@ os quais tiverem um vizinho igual 😁😎 */
   /* Pra que o gradiente não vaze da label branca: */
   position: relative;
   top: 2px;
+}
+
+.threeDigits {
+  font-size: 2.5rem;
 }
 
 /*==================== CONTENT ====================*/
@@ -352,6 +361,7 @@ os quais tiverem um vizinho igual 😁😎 */
 /*==================== TEXTS ====================*/
 p {
   font-size: var(--normal-font-size);
+  text-align: justify;
   line-height: 1.6;
   letter-spacing: -0.005rem;
   color: var(--text-color);
@@ -478,8 +488,8 @@ os quais tiverem um vizinho igual 😁😎 */
   .sidenav::after {
     content: "→";
     position: absolute;
-    font-size: 1.5rem;
-    top: 5px;
+    font-size: 1.6rem;
+    top: -4px;
     right: 20px;
     color: var(--first-color);
     animation: seta 0.5s ease-in 0s infinite alternate;
