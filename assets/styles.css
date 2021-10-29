@@ -15,11 +15,10 @@
     var(--first-color),
     var(--second-color)
   );
+  --body-color: #fff;
   --text-color: #646464;
-  --text-color-light: ;
-  --input-color: ;
-  --body-color: ;
   --container-color: #f2f3f6;
+  --label-color: #fff;
   --shadow-color: rgba(44, 44, 44, 0.15);
   /* Scroll Bar Colors */
   --scroll-bar-color: #e4e4e4;
@@ -70,6 +69,29 @@
     --small-font-size: 0.875rem;
     --smaller-font-size: 0.625rem;
   }
+}
+
+/*========== Variables Dark theme ==========*/
+body.dark-theme {
+  --first-color: #5718b6;
+  --second-color: #7034ca;
+  --first-color-alt: #2d1257;
+  --header-gradient: linear-gradient(
+    135deg,
+    var(--first-color),
+    var(--second-color)
+  );
+  --body-color: #131516;
+  --text-color: #cccccc;
+  --container-color: #262829;
+  --label-color: #262829;
+  --shadow-color: rgba(44, 44, 44, 0.15);
+  /* Scroll Bar Colors */
+  --scroll-bar-color: #e4e4e4;
+  --scroll-thumb-color: #b4b8ca;
+  --scroll-bar-thumb-hover: #6d777c;
+  --scroll-bar-color: #202324;
+  --scroll-thumb-color: #454a4d;
 }
 
 /*==================== BASE ====================*/
@@ -167,6 +189,24 @@ os quais tiverem um vizinho igual 😁😎 */
   margin-left: var(--mb-2);
 }
 
+/*========== Button Dark/Light ==========*/
+.nav_btns {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem;
+  background: var(--first-color);
+  border-radius: var(--border-radius);
+  transition: 0.1s;
+}
+.change-theme {
+  font-size: var(--normal-font-size);
+  color: white;
+  cursor: pointer;
+}
+.nav_btns:hover {
+  background: var(--first-color-alt);
+}
+
 /*==================== SIDE NAV ====================*/
 .sidenav {
   grid-area: sidenav;
@@ -180,7 +220,7 @@ os quais tiverem um vizinho igual 😁😎 */
   margin: 0 auto var(--mb-2) auto;
   /* ☝🏼 0 pra cima, auto pra direita,
   1.8 pra baixo, e auto pra esquerda*/
-  background: white;
+  background: var(--body-color);
   padding: 1rem;
   border-radius: var(--border-radius);
   box-shadow: 5px 5px 15px 0px var(--shadow-color);
@@ -193,6 +233,7 @@ os quais tiverem um vizinho igual 😁😎 */
 .link_active:hover {
   background: white !important;
 }
+
 /*==================== ADVERTISING / ADVERTISEMENTS ====================*/
 .ads {
   grid-area: ads;
@@ -273,7 +314,7 @@ os quais tiverem um vizinho igual 😁😎 */
 }
 
 .label {
-  background: white;
+  background: var(--label-color);
   border-radius: 0 0 var(--border-radius) var(--border-radius);
   /* ☝🏼 0 canto superior direito, 0 canto superior esquerdo
   & X no canto inferior direito, X no canto inferior esquerdo */
