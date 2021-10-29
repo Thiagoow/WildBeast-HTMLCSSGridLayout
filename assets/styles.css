@@ -73,9 +73,9 @@
 
 /*========== Variables Dark theme ==========*/
 body.dark-theme {
-  --first-color: #5718b6;
-  --second-color: #7034ca;
-  --first-color-alt: #2d1257;
+  --first-color: #6316d6;
+  --second-color: #b07dfb;
+  --first-color-alt: #341563;
   --header-gradient: linear-gradient(
     135deg,
     var(--first-color),
