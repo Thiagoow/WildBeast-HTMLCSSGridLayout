@@ -89,9 +89,9 @@ body.dark-theme {
   /* Scroll Bar Colors */
   --scroll-bar-color: #e4e4e4;
   --scroll-thumb-color: #b4b8ca;
-  --scroll-bar-thumb-hover: #6d777c;
-  --scroll-bar-color: #202324;
+  --scroll-bar-color: #000000;
   --scroll-thumb-color: #454a4d;
+  --scroll-bar-thumb-hover: #6d777c;
 }
 
 /*==================== BASE ====================*/
