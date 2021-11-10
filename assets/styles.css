@@ -276,6 +276,8 @@ diretamente no ícone. */
   /* Pra ele não crescer: */
   max-width: 16rem;
   font-weight: var(--font-semi-bold);
+  text-align: left;
+  word-spacing: var(--mb-0-25);
 }
 
 /*==================== CHARACTERISTICS ====================*/
@@ -361,10 +363,10 @@ diretamente no ícone. */
 /*==================== TEXTS ====================*/
 p {
   font-size: var(--normal-font-size);
-  text-align: justify;
   line-height: 1.6;
-  letter-spacing: -0.005rem;
   color: var(--text-color);
+  text-align: left;
+  max-width: 680px;
 }
 
 .info p + p {
@@ -415,6 +417,7 @@ os quais tiverem um vizinho igual 😁😎 */
 .footer p {
   color: white;
   text-align: center;
+  max-width: none;
   padding: var(--mb-2);
 }
 .footer a {
